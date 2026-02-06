@@ -184,7 +184,7 @@ interface Notification {
   timestamp: Date
 }
 
-export default function Home() {
+export default function DeployBotDashboard() {
   const [view, setView] = useState<'dashboard' | 'new-deployment' | 'deployment-detail'>('dashboard')
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [chatOpen, setChatOpen] = useState(false)
