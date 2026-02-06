@@ -5,7 +5,7 @@ import { callAIAgent } from '@/lib/aiAgent'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Loader2, CheckCircle, AlertTriangle, XCircle, Send, Menu, Settings, Home, Rocket, MessageSquare, TrendingUp, DollarSign, Shield, Code, Server, ChevronRight, ChevronDown, X as CloseIcon } from 'lucide-react'
+import { Loader2, CheckCircle, AlertTriangle, XCircle, Send, Menu, Settings, Home as HomeIcon, Rocket, MessageSquare, TrendingUp, DollarSign, Shield, Code, Server, ChevronRight, ChevronDown, X as CloseIcon } from 'lucide-react'
 
 // Agent IDs
 const AGENTS = {
@@ -447,7 +447,7 @@ export default function Home() {
               view === 'dashboard' ? 'bg-blue-500/20 text-blue-500' : 'hover:bg-gray-800'
             }`}
           >
-            <Home className="w-5 h-5" />
+            <HomeIcon className="w-5 h-5" />
             {sidebarOpen && <span>Dashboard</span>}
           </button>
 
