@@ -1,0 +1,75 @@
+{
+  "workflow_created": true,
+  "agents": {
+    "code_analysis_agent": {
+      "agent_id": "6985adf57551cb7920ffea13",
+      "name": "Code Analysis Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "schema_file": "response_schemas/code_analysis_agent_response.json"
+    },
+    "security_scanner_agent": {
+      "agent_id": "6985ae172a763ad393eee3d8",
+      "name": "Security Scanner Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "schema_file": "response_schemas/security_scanner_agent_response.json"
+    },
+    "infrastructure_provisioner_agent": {
+      "agent_id": "6985ae3d2a763ad393eee3d9",
+      "name": "Infrastructure Provisioner Agent",
+      "type": "sub-agent",
+      "status": "created",
+      "schema_file": "response_schemas/infrastructure_provisioner_agent_response.json"
+    },
+    "deployment_orchestrator": {
+      "agent_id": "6985ae5e2a763ad393eee3da",
+      "name": "Deployment Orchestrator",
+      "type": "manager",
+      "status": "created",
+      "managed_agents": [
+        "6985adf57551cb7920ffea13",
+        "6985ae172a763ad393eee3d8",
+        "6985ae3d2a763ad393eee3d9"
+      ],
+      "schema_file": "response_schemas/deployment_orchestrator_response.json"
+    },
+    "chat_assistant_agent": {
+      "agent_id": "6985ae7c85ec6e96582ac263",
+      "name": "Chat Assistant Agent",
+      "type": "independent",
+      "status": "created",
+      "has_knowledge_base": true,
+      "rag_id": "6985ae6dde7de278e55d28cc",
+      "rag_name": "deploybotdeploymentdocsc7bl",
+      "schema_file": "response_schemas/chat_assistant_agent_response.json"
+    }
+  },
+  "knowledge_bases": {
+    "deployment_docs": {
+      "rag_id": "6985ae6dde7de278e55d28cc",
+      "rag_name": "deploybotdeploymentdocsc7bl",
+      "collection_name": "deploybotdeploymentdocsc7bl",
+      "description": "Deployment documentation and troubleshooting guides"
+    }
+  },
+  "integrations": {
+    "github": {
+      "tool_source": "composio",
+      "actions": ["GITHUB_GET_A_REPOSITORY", "GITHUB_LIST_REPOSITORY_FILES", "GITHUB_GET_REPOSITORY_CONTENT"],
+      "used_by": ["code_analysis_agent", "security_scanner_agent"]
+    },
+    "railway": {
+      "tool_source": "custom",
+      "status": "pending_implementation",
+      "used_by": ["infrastructure_provisioner_agent"]
+    },
+    "render": {
+      "tool_source": "custom",
+      "status": "pending_implementation",
+      "used_by": ["infrastructure_provisioner_agent"]
+    }
+  },
+  "timestamp": "2026-02-06T00:00:00.000Z",
+  "total_agents": 5
+}

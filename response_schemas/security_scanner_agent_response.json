@@ -1,0 +1,171 @@
+{
+  "agent_name": "Security Scanner Agent",
+  "agent_id": "6985ae172a763ad393eee3d8",
+  "agent_purpose": "security_scanning",
+  "description": "Performs security scanning for exposed credentials, dependency vulnerabilities, security headers validation, and compliance checks",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "security_clearance": "string",
+      "risk_level": "string",
+      "exposed_credentials": [
+        {
+          "type": "string",
+          "location": "string",
+          "severity": "string",
+          "recommendation": "string"
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "package": "string",
+          "current_version": "string",
+          "cve_id": "string",
+          "severity": "string",
+          "fixed_version": "string",
+          "description": "string"
+        }
+      ],
+      "security_headers": {
+        "configured": [
+          "string"
+        ],
+        "missing": [
+          "string"
+        ],
+        "recommendations": [
+          "string"
+        ]
+      },
+      "compliance": {
+        "soc2_ready": "boolean",
+        "gdpr_ready": "boolean",
+        "issues": [
+          "string"
+        ]
+      },
+      "overall_score": "number"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "security_clearance": "conditional",
+      "risk_level": "medium",
+      "exposed_credentials": [
+        {
+          "type": "api_key",
+          "location": "src/config.js:14",
+          "severity": "critical",
+          "recommendation": "Remove hardcoded API key and use environment variables with proper .env file management."
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "package": "express",
+          "current_version": "4.17.1",
+          "cve_id": "CVE-2022-24999",
+          "severity": "high",
+          "fixed_version": "4.18.2",
+          "description": "A vulnerability was found in express that could allow an attacker to execute arbitrary code. Update to 4.18.2 or later."
+        }
+      ],
+      "security_headers": {
+        "configured": [
+          "Content-Type",
+          "X-Frame-Options"
+        ],
+        "missing": [
+          "Strict-Transport-Security",
+          "Content-Security-Policy",
+          "X-Content-Type-Options",
+          "Referrer-Policy",
+          "Permissions-Policy"
+        ],
+        "recommendations": [
+          "Add Strict-Transport-Security for HTTPS enforcement.",
+          "Configure Content-Security-Policy to mitigate XSS.",
+          "Add X-Content-Type-Options to prevent MIME type sniffing.",
+          "Implement Referrer-Policy and Permissions-Policy for enhanced privacy."
+        ]
+      },
+      "compliance": {
+        "soc2_ready": false,
+        "gdpr_ready": false,
+        "issues": [
+          "Missing access logs and audit trails for SOC2 compliance.",
+          "No explicit consent management or privacy policy found for GDPR."
+        ]
+      },
+      "overall_score": 62
+    },
+    "metadata": {
+      "agent_name": "Security Scanner Agent",
+      "timestamp": "2024-06-13T11:34:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:02:36.715523",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "security_clearance": "conditional",
+      "risk_level": "medium",
+      "exposed_credentials": [
+        {
+          "type": "api_key",
+          "location": "src/config.js:14",
+          "severity": "critical",
+          "recommendation": "Remove hardcoded API key and use environment variables with proper .env file management."
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "package": "express",
+          "current_version": "4.17.1",
+          "cve_id": "CVE-2022-24999",
+          "severity": "high",
+          "fixed_version": "4.18.2",
+          "description": "A vulnerability was found in express that could allow an attacker to execute arbitrary code. Update to 4.18.2 or later."
+        }
+      ],
+      "security_headers": {
+        "configured": [
+          "Content-Type",
+          "X-Frame-Options"
+        ],
+        "missing": [
+          "Strict-Transport-Security",
+          "Content-Security-Policy",
+          "X-Content-Type-Options",
+          "Referrer-Policy",
+          "Permissions-Policy"
+        ],
+        "recommendations": [
+          "Add Strict-Transport-Security for HTTPS enforcement.",
+          "Configure Content-Security-Policy to mitigate XSS.",
+          "Add X-Content-Type-Options to prevent MIME type sniffing.",
+          "Implement Referrer-Policy and Permissions-Policy for enhanced privacy."
+        ]
+      },
+      "compliance": {
+        "soc2_ready": false,
+        "gdpr_ready": false,
+        "issues": [
+          "Missing access logs and audit trails for SOC2 compliance.",
+          "No explicit consent management or privacy policy found for GDPR."
+        ]
+      },
+      "overall_score": 62
+    },
+    "metadata": {
+      "agent_name": "Security Scanner Agent",
+      "timestamp": "2024-06-13T11:34:00Z"
+    }
+  }
+}

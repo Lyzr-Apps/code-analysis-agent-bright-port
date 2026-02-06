@@ -1,0 +1,124 @@
+{
+  "agent_name": "Deployment Orchestrator",
+  "agent_id": "6985ae5e2a763ad393eee3da",
+  "agent_purpose": "deployment_orchestration",
+  "description": "Orchestrates the deployment pipeline by coordinating sub-agents and providing unified deployment decisions",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "deployment_decision": "string",
+      "decision_justification": "string",
+      "overall_readiness_score": "number",
+      "repository_url": "string",
+      "code_analysis_summary": {
+        "tech_stack": "string",
+        "readiness_score": "number",
+        "critical_blockers": "number",
+        "status": "string"
+      },
+      "security_summary": {
+        "security_clearance": "string",
+        "risk_level": "string",
+        "critical_vulnerabilities": "number",
+        "status": "string"
+      },
+      "infrastructure_summary": {
+        "recommended_platform": "string",
+        "estimated_monthly_cost": "number",
+        "provisioning_ready": "boolean",
+        "status": "string"
+      },
+      "next_steps": [
+        "string"
+      ],
+      "estimated_deployment_time": "string",
+      "approval_required": "boolean"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "pipeline_phase": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "deployment_decision": "GO",
+      "decision_justification": "All critical phases of the deployment pipeline have passed. The code is well-structured with no critical blockers, security clearance is approved with low risk and zero critical vulnerabilities, and the recommended infrastructure is provisioning-ready with reasonable costs. No major blockers detected across code, security, or infrastructure.",
+      "overall_readiness_score": 91,
+      "repository_url": "https://github.com/sample-org/sample-repo",
+      "code_analysis_summary": {
+        "tech_stack": "Node.js, Express, React, MongoDB",
+        "readiness_score": 92,
+        "critical_blockers": 0,
+        "status": "passed"
+      },
+      "security_summary": {
+        "security_clearance": "approved",
+        "risk_level": "low",
+        "critical_vulnerabilities": 0,
+        "status": "passed"
+      },
+      "infrastructure_summary": {
+        "recommended_platform": "AWS Elastic Beanstalk",
+        "estimated_monthly_cost": 75,
+        "provisioning_ready": true,
+        "status": "ready"
+      },
+      "next_steps": [
+        "Proceed to deployment execution using the selected CI/CD pipeline.",
+        "Monitor deployment logs and health checks post-launch.",
+        "Set up automated backups and monitoring on AWS."
+      ],
+      "estimated_deployment_time": "15-20 minutes",
+      "approval_required": false
+    },
+    "metadata": {
+      "agent_name": "Deployment Orchestrator",
+      "timestamp": "2024-06-06T19:00:00Z",
+      "pipeline_phase": "complete"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:03:36.532324",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "deployment_decision": "GO",
+      "decision_justification": "All critical phases of the deployment pipeline have passed. The code is well-structured with no critical blockers, security clearance is approved with low risk and zero critical vulnerabilities, and the recommended infrastructure is provisioning-ready with reasonable costs. No major blockers detected across code, security, or infrastructure.",
+      "overall_readiness_score": 91,
+      "repository_url": "https://github.com/sample-org/sample-repo",
+      "code_analysis_summary": {
+        "tech_stack": "Node.js, Express, React, MongoDB",
+        "readiness_score": 92,
+        "critical_blockers": 0,
+        "status": "passed"
+      },
+      "security_summary": {
+        "security_clearance": "approved",
+        "risk_level": "low",
+        "critical_vulnerabilities": 0,
+        "status": "passed"
+      },
+      "infrastructure_summary": {
+        "recommended_platform": "AWS Elastic Beanstalk",
+        "estimated_monthly_cost": 75,
+        "provisioning_ready": true,
+        "status": "ready"
+      },
+      "next_steps": [
+        "Proceed to deployment execution using the selected CI/CD pipeline.",
+        "Monitor deployment logs and health checks post-launch.",
+        "Set up automated backups and monitoring on AWS."
+      ],
+      "estimated_deployment_time": "15-20 minutes",
+      "approval_required": false
+    },
+    "metadata": {
+      "agent_name": "Deployment Orchestrator",
+      "timestamp": "2024-06-06T19:00:00Z",
+      "pipeline_phase": "complete"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "agent_name": "Code Analysis Agent",
+  "agent_id": "6985adf57551cb7920ffea13",
+  "agent_purpose": "code_analysis",
+  "description": "Analyzes repository code to detect technology stack, identify deployment blockers, provide auto-fix suggestions, and generate readiness scores",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "tech_stack": {
+        "language": "string",
+        "framework": "string",
+        "package_manager": "string",
+        "runtime_version": "string"
+      },
+      "blockers": [
+        {
+          "type": "string",
+          "severity": "string",
+          "location": "string",
+          "description": "string",
+          "auto_fix": "string"
+        }
+      ],
+      "readiness_score": "number",
+      "recommendations": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "tech_stack": {
+        "language": "JavaScript",
+        "framework": "React",
+        "package_manager": "npm",
+        "runtime_version": "Node.js >=14.0.0"
+      },
+      "blockers": [
+        {
+          "type": "hardcoded_secret",
+          "severity": "critical",
+          "location": "src/config.js:12",
+          "description": "Found a hardcoded API key: 'const API_KEY = \"sk_test_abc123\"'. This may compromise application security.",
+          "auto_fix": "// Replace hardcoded API key with environment variable\nconst API_KEY = process.env.REACT_APP_API_KEY;"
+        },
+        {
+          "type": "missing_env",
+          "severity": "high",
+          "location": "src/config.js",
+          "description": "Environment variable REACT_APP_API_KEY is referenced in code but not documented in .env.example.",
+          "auto_fix": "# Add to .env.example\nREACT_APP_API_KEY="
+        },
+        {
+          "type": "build_config",
+          "severity": "medium",
+          "location": "package.json",
+          "description": "Missing 'start' script in package.json. This may prevent deployment to some hosting providers.",
+          "auto_fix": "// Add the following to package.json scripts\n\"scripts\": {\n  \"start\": \"react-scripts start\"\n}"
+        },
+        {
+          "type": "dependency",
+          "severity": "high",
+          "location": "package.json",
+          "description": "Detected conflicting versions for 'react' and 'react-dom'.",
+          "auto_fix": "// Align versions in package.json\ndependencies: {\n  \"react\": \"18.2.0\",\n  \"react-dom\": \"18.2.0\"\n}"
+        }
+      ],
+      "readiness_score": 68,
+      "recommendations": [
+        "Remove all hardcoded secrets and replace with environment variables.",
+        "Document all required environment variables in .env.example.",
+        "Ensure package.json includes scripts for starting and building the app.",
+        "Resolve all dependency version conflicts before deployment."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Code Analysis Agent",
+      "timestamp": "2024-06-11T17:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:02:00.964735",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "tech_stack": {
+        "language": "JavaScript",
+        "framework": "React",
+        "package_manager": "npm",
+        "runtime_version": "Node.js >=14.0.0"
+      },
+      "blockers": [
+        {
+          "type": "hardcoded_secret",
+          "severity": "critical",
+          "location": "src/config.js:12",
+          "description": "Found a hardcoded API key: 'const API_KEY = \"sk_test_abc123\"'. This may compromise application security.",
+          "auto_fix": "// Replace hardcoded API key with environment variable\nconst API_KEY = process.env.REACT_APP_API_KEY;"
+        },
+        {
+          "type": "missing_env",
+          "severity": "high",
+          "location": "src/config.js",
+          "description": "Environment variable REACT_APP_API_KEY is referenced in code but not documented in .env.example.",
+          "auto_fix": "# Add to .env.example\nREACT_APP_API_KEY="
+        },
+        {
+          "type": "build_config",
+          "severity": "medium",
+          "location": "package.json",
+          "description": "Missing 'start' script in package.json. This may prevent deployment to some hosting providers.",
+          "auto_fix": "// Add the following to package.json scripts\n\"scripts\": {\n  \"start\": \"react-scripts start\"\n}"
+        },
+        {
+          "type": "dependency",
+          "severity": "high",
+          "location": "package.json",
+          "description": "Detected conflicting versions for 'react' and 'react-dom'.",
+          "auto_fix": "// Align versions in package.json\ndependencies: {\n  \"react\": \"18.2.0\",\n  \"react-dom\": \"18.2.0\"\n}"
+        }
+      ],
+      "readiness_score": 68,
+      "recommendations": [
+        "Remove all hardcoded secrets and replace with environment variables.",
+        "Document all required environment variables in .env.example.",
+        "Ensure package.json includes scripts for starting and building the app.",
+        "Resolve all dependency version conflicts before deployment."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Code Analysis Agent",
+      "timestamp": "2024-06-11T17:00:00Z"
+    }
+  }
+}

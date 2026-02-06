@@ -1,0 +1,200 @@
+{
+  "agent_name": "Infrastructure Provisioner Agent",
+  "agent_id": "6985ae3d2a763ad393eee3d9",
+  "agent_purpose": "infrastructure_provisioning",
+  "description": "Recommends deployment platforms, designs infrastructure architecture, calculates costs, and generates deployment configurations",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "recommended_platform": "string",
+      "platform_justification": "string",
+      "infrastructure_design": {
+        "services": [
+          {
+            "name": "string",
+            "type": "string",
+            "instance_type": "string",
+            "scaling": {
+              "min_instances": "number",
+              "max_instances": "number",
+              "auto_scale": "boolean"
+            }
+          }
+        ],
+        "databases": [
+          {
+            "type": "string",
+            "size": "string",
+            "backup": "boolean"
+          }
+        ],
+        "additional_services": [
+          "string"
+        ]
+      },
+      "cost_estimate": {
+        "monthly_cost": {
+          "compute": "number",
+          "database": "number",
+          "networking": "number",
+          "storage": "number",
+          "total": "number"
+        },
+        "currency": "string",
+        "breakdown": "string"
+      },
+      "deployment_config": {
+        "build_command": "string",
+        "start_command": "string",
+        "environment_variables": [
+          "string"
+        ],
+        "port": "number",
+        "health_check": "string"
+      },
+      "provisioning_steps": [
+        "string"
+      ],
+      "estimated_time": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "recommended_platform": "Railway",
+      "platform_justification": "Railway offers seamless deployment and management for modern web applications, supports automatic scaling, and provides easy integration with PostgreSQL databases. Its developer-friendly interface and transparent pricing make it ideal for fast, reliable deployments.",
+      "infrastructure_design": {
+        "services": [
+          {
+            "name": "web-app",
+            "type": "web",
+            "instance_type": "Standard (512MB RAM, 1 vCPU)",
+            "scaling": {
+              "min_instances": 1,
+              "max_instances": 3,
+              "auto_scale": true
+            }
+          }
+        ],
+        "databases": [
+          {
+            "type": "PostgreSQL",
+            "size": "10GB",
+            "backup": true
+          }
+        ],
+        "additional_services": [
+          "Load Balancer"
+        ]
+      },
+      "cost_estimate": {
+        "monthly_cost": {
+          "compute": 20,
+          "database": 15,
+          "networking": 5,
+          "storage": 2,
+          "total": 42
+        },
+        "currency": "USD",
+        "breakdown": "Compute: $20 (web service with scaling), Database: $15 (10GB PostgreSQL with backups), Networking: $5 (approximate data transfer), Storage: $2 (additional storage needs)"
+      },
+      "deployment_config": {
+        "build_command": "npm run build",
+        "start_command": "npm start",
+        "environment_variables": [
+          "DATABASE_URL",
+          "NODE_ENV"
+        ],
+        "port": 3000,
+        "health_check": "/health"
+      },
+      "provisioning_steps": [
+        "Create Railway project",
+        "Set up PostgreSQL database",
+        "Deploy web service with build and start commands",
+        "Configure environment variables",
+        "Set up health check endpoint and Load Balancer",
+        "Enable daily database backups",
+        "Monitor deployment and autoscaling"
+      ],
+      "estimated_time": "5-10 minutes"
+    },
+    "metadata": {
+      "agent_name": "Infrastructure Provisioner Agent",
+      "timestamp": "2024-06-08T14:10:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T09:03:08.717364",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "recommended_platform": "Railway",
+      "platform_justification": "Railway offers seamless deployment and management for modern web applications, supports automatic scaling, and provides easy integration with PostgreSQL databases. Its developer-friendly interface and transparent pricing make it ideal for fast, reliable deployments.",
+      "infrastructure_design": {
+        "services": [
+          {
+            "name": "web-app",
+            "type": "web",
+            "instance_type": "Standard (512MB RAM, 1 vCPU)",
+            "scaling": {
+              "min_instances": 1,
+              "max_instances": 3,
+              "auto_scale": true
+            }
+          }
+        ],
+        "databases": [
+          {
+            "type": "PostgreSQL",
+            "size": "10GB",
+            "backup": true
+          }
+        ],
+        "additional_services": [
+          "Load Balancer"
+        ]
+      },
+      "cost_estimate": {
+        "monthly_cost": {
+          "compute": 20,
+          "database": 15,
+          "networking": 5,
+          "storage": 2,
+          "total": 42
+        },
+        "currency": "USD",
+        "breakdown": "Compute: $20 (web service with scaling), Database: $15 (10GB PostgreSQL with backups), Networking: $5 (approximate data transfer), Storage: $2 (additional storage needs)"
+      },
+      "deployment_config": {
+        "build_command": "npm run build",
+        "start_command": "npm start",
+        "environment_variables": [
+          "DATABASE_URL",
+          "NODE_ENV"
+        ],
+        "port": 3000,
+        "health_check": "/health"
+      },
+      "provisioning_steps": [
+        "Create Railway project",
+        "Set up PostgreSQL database",
+        "Deploy web service with build and start commands",
+        "Configure environment variables",
+        "Set up health check endpoint and Load Balancer",
+        "Enable daily database backups",
+        "Monitor deployment and autoscaling"
+      ],
+      "estimated_time": "5-10 minutes"
+    },
+    "metadata": {
+      "agent_name": "Infrastructure Provisioner Agent",
+      "timestamp": "2024-06-08T14:10:00Z"
+    }
+  }
+}
